@@ -1,0 +1,25 @@
+{
+  "name": "ist256code",
+  "version": "1.0.0",
+  "description": "hello world\r repository for ist 256 code",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tablewares/ist256code.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/tablewares/ist256code/issues"
+  },
+  "homepage": "https://github.com/tablewares/ist256code#readme",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}

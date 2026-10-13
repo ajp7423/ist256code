@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Join SoundWave</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">SoundWave</a>
+
+            <div>
+                <a class="nav-link d-inline-block text-white me-3"
+                   href="index.html">Home</a>
+
+                <a class="nav-link d-inline-block text-white"
+                   href="signup.html">Join SoundWave</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Signup Form -->
+    <main class="container my-5">
+
+        <div class="form-container mx-auto">
+
+            <h1 class="text-center mb-2">Join SoundWave</h1>
+
+            <p class="text-center text-muted mb-4">
+                Create your community profile and share your love of music.
+            </p>
+
+            <form id="signupForm" novalidate>
+
+                <!-- Full Name -->
+                <div class="mb-3">
+                    <label for="name" class="form-label">
+                        Full Name *
+                    </label>
+
+                    <input type="text"
+                           class="form-control"
+                           id="name"
+                           placeholder="Enter your full name"
+                           required>
+
+                    <div class="invalid-feedback">
+                        Please enter your full name.
+                    </div>
+                </div>
+
+
+                <!-- Age -->
+                <div class="mb-3">
+                    <label for="age" class="form-label">
+                        Age *
+                    </label>
+
+                    <input type="number"
+                           class="form-control"
+                           id="age"
+                           placeholder="Enter your age"
+                           min="13"
+                           max="120"
+                           required>
+
+                    <div class="invalid-feedback">
+                        Please enter a valid age between 13 and 120.
+                    </div>
+                </div>
+
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">
+                        Email Address *
+                    </label>
+
+                    <input type="email"
+                           class="form-control"
+                           id="email"
+                           placeholder="example@email.com"
+                           required>
+
+                    <div class="invalid-feedback">
+                        Please enter a valid email address.
+                    </div>
+                </div>
+
+
+                <!-- Affiliation -->
+                <div class="mb-3">
+                    <label for="affiliation" class="form-label">
+                        School or Organization *
+                    </label>
+
+                    <input type="text"
+                           class="form-control"
+                           id="affiliation"
+                           placeholder="Enter your school or organization"
+                           required>
+
+                    <div class="invalid-feedback">
+                        Please enter your school or organization.
+                    </div>
+                </div>
+
+
+                <!-- Phone -->
+                <div class="mb-3">
+                    <label for="phone" class="form-label">
+                        Phone Number
+                    </label>
+
+                    <input type="tel"
+                           class="form-control"
+                           id="phone"
+                           placeholder="555-555-5555">
+
+                    <div class="invalid-feedback">
+                        Please enter a valid phone number.
+                    </div>
+                </div>
+
+
+                <!-- Favorite Genre -->
+                <div class="mb-3">
+                    <label for="genre" class="form-label">
+                        Favorite Music Genre
+                    </label>
+
+                    <select class="form-select" id="genre">
+                        <option value="">Choose a genre</option>
+                        <option>Pop</option>
+                        <option>Hip-Hop</option>
+                        <option>Rock</option>
+                        <option>Country</option>
+                        <option>R&B</option>
+                        <option>Alternative</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+
+                <button type="submit" class="btn btn-dark w-100">
+                    Join SoundWave
+                </button>
+
+            </form>
+
+            <div id="successMessage" class="alert alert-success mt-4 d-none">
+                Your information is valid! Welcome to SoundWave.
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

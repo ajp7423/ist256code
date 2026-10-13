@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User Sign-Up | Project Name</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar (same as the index page) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Project Name</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNav" aria-controls="mainNav"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#team">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a class="btn btn-primary active" aria-current="page" href="user.html">User Page</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-light py-5">
+    <div class="container">
+      <h1 class="display-5 fw-bold">Create your account</h1>
+      <p class="lead">Tell us a little about yourself. All fields are required.</p>
+    </div>
+  </header>
+
+  <main class="container my-5">
+    <div class="row">
+      <div class="col-12 col-lg-8 col-xl-7">
+
+        <!-- Shown after a successful submit -->
+        <div id="successAlert" class="alert alert-success d-none" role="alert">
+          Thanks, <strong id="successName"></strong>! Your details passed every check.
+          (This form does not save anything.)
+        </div>
+
+        <form id="signupForm" novalidate>
+          <div class="mb-3">
+            <label for="fullName" class="form-label">Full name</label>
+            <input type="text" class="form-control" id="fullName" name="fullName"
+                   placeholder="Jane Smith" autocomplete="name">
+            <div class="invalid-feedback" id="fullNameError"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="email"
+                   placeholder="you@example.com" autocomplete="email">
+            <div class="invalid-feedback" id="emailError"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="phone" class="form-label">Contact phone number</label>
+            <input type="tel" class="form-control" id="phone" name="phone"
+                   placeholder="(555) 123-4567" autocomplete="tel">
+            <div class="invalid-feedback" id="phoneError"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="ageGrade" class="form-label">Age or year/grade</label>
+            <input type="text" class="form-control" id="ageGrade" name="ageGrade"
+                   placeholder="21, or Junior, or 11th grade">
+            <div class="form-text">Enter a number for your age, or your year/grade in words.</div>
+            <div class="invalid-feedback" id="ageGradeError"></div>
+          </div>
+
+          <div class="mb-4">
+            <label for="address" class="form-label">Address</label>
+            <textarea class="form-control" id="address" name="address" rows="3"
+                      placeholder="123 Main St, City, State ZIP" autocomplete="street-address"></textarea>
+            <div class="invalid-feedback" id="addressError"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg">Sign up</button>
+          <button type="reset" class="btn btn-outline-secondary btn-lg ms-2" id="resetBtn">Clear</button>
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white-50 text-center py-3">
+  </footer>
+
+  <!-- Bootstrap JS (needed for the mobile menu toggle) -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+  <!-- Form validation -->
+  <script>
+    (function () {
+      var form = document.getElementById('signupForm');
+      var successAlert = document.getElementById('successAlert');
+      var successName = document.getElementById('successName');
+
+      // Each validator returns an error message, or "" when the value is fine.
+      var validators = {
+        fullName: function (v) {
+          if (!v) return 'Enter your full name.';
+          if (!/^[A-Za-z][A-Za-z\s.'-]*$/.test(v)) return 'Use letters, spaces, hyphens, apostrophes, or periods only.';
+          if (v.split(/\s+/).length < 2) return 'Enter both your first and last name.';
+          return '';
+        },
+        email: function (v) {
+          if (!v) return 'Enter your email address.';
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) return 'Enter a valid email, like you@example.com.';
+          return '';
+        },
+        phone: function (v) {
+          if (!v) return 'Enter a contact phone number.';
+          if (!/^[\d\s().+-]+$/.test(v)) return 'Use digits, spaces, parentheses, dashes, or a leading +.';
+          var digits = v.replace(/\D/g, '');
+          if (digits.length < 10 || digits.length > 15) return 'Enter 10 to 15 digits, including area code.';
+          return '';
+        },
+        ageGrade: function (v) {
+          if (!v) return 'Enter your age or year/grade.';
+          if (/^\d+$/.test(v)) {
+            var n = parseInt(v, 10);
+            if (n < 1 || n > 120) return 'Age must be between 1 and 120.';
+            return '';
+          }
+          if (!/[A-Za-z]/.test(v) || v.length < 2) return 'Enter a number for age, or a year/grade like "Junior" or "11th grade".';
+          return '';
+        },
+        address: function (v) {
+          if (!v) return 'Enter your address.';
+          if (v.length < 8 || !/\d/.test(v) || !/[A-Za-z]/.test(v)) return 'Enter a full address with street number and name.';
+          return '';
+        }
+      };
+
+      function check(id) {
+        var input = document.getElementById(id);
+        var message = validators[id](input.value.trim());
+        document.getElementById(id + 'Error').textContent = message;
+        input.classList.toggle('is-invalid', message !== '');
+        input.classList.toggle('is-valid', message === '');
+        return message === '';
+      }
+
+      // Re-check a field as soon as the person leaves it, and as they fix it.
+      Object.keys(validators).forEach(function (id) {
+        var input = document.getElementById(id);
+        input.addEventListener('blur', function () { check(id); });
+        input.addEventListener('input', function () {
+          if (input.classList.contains('is-invalid')) check(id);
+        });
+      });
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault(); // nothing is sent or saved
+        var allValid = true;
+        var firstBad = null;
+        Object.keys(validators).forEach(function (id) {
+          if (!check(id)) {
+            allValid = false;
+            if (!firstBad) firstBad = document.getElementById(id);
+          }
+        });
+
+        if (!allValid) {
+          successAlert.classList.add('d-none');
+          firstBad.focus();
+          return;
+        }
+
+        successName.textContent = document.getElementById('fullName').value.trim();
+        successAlert.classList.remove('d-none');
+        successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+
+      form.addEventListener('reset', function () {
+        successAlert.classList.add('d-none');
+        Object.keys(validators).forEach(function (id) {
+          document.getElementById(id).classList.remove('is-invalid', 'is-valid');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

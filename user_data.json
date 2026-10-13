@@ -1,23 +1,9 @@
 [
   {
-    "fullName": "asdas asd",
-    "email": "asda@gmail.com",
-    "phone": "1223423223",
-    "ageGrade": "23",
-    "address": "123 Jen Streeta"
-  },
-  {
-    "fullName": "asdas asd",
-    "email": "asda@gmail.com",
-    "phone": "1223423223",
-    "ageGrade": "23",
-    "address": "123 Jen Streeta"
-  },
-  {
-    "fullName": "asdas asd",
-    "email": "asda@gmail.com",
-    "phone": "1223423223",
-    "ageGrade": "23",
-    "address": "123 Jen Streeta"
+    "fullName": "john doe",
+    "email": "example@gmail.com",
+    "phone": "1234567890",
+    "ageGrade": "67",
+    "address": "1600 Pennsylvania Avenue, N.W"
   }
 ]

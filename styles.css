@@ -50,3 +50,38 @@ body {
 .form-label {
     font-weight: 600;
 }
+/* Music Library page */
+
+.library-hero {
+    background: linear-gradient(135deg, #212529, #5b3c88);
+    color: white;
+    padding: 55px 20px;
+}
+
+.management-panel {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+#songTableBody td {
+    vertical-align: middle;
+}
+
+#searchInput:focus,
+.form-control:focus,
+.form-select:focus {
+    border-color: #7652a8;
+    box-shadow: 0 0 0 0.2rem rgba(118, 82, 168, 0.2);
+}
+
+@media (max-width: 576px) {
+    .management-panel {
+        padding: 20px 16px;
+    }
+
+    .library-hero {
+        padding: 40px 15px;
+    }
+}

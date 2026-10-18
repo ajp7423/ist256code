@@ -98,7 +98,7 @@ def format_track_record(track_id, release_data, search_song, default_artist):
 
     return {
         "trackId": str(track_id),
-        "song_title": matching_title,
+        "title": matching_title,
         "category": category,
         "format": format_name,
         "price": price_str,

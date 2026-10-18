@@ -1,5 +1,5 @@
 // Aidan: track form validation and display.
-const tracks = [];
+let tracks = [];
 
 const trackForm = document.getElementById("trackForm");
 const message = document.getElementById("message");
@@ -10,6 +10,14 @@ function validateField(id, error) {
     field.classList.add(error === "" ? "is-valid" : "is-invalid");
     document.getElementById(id + "Error").textContent = error;
     return error === "";
+}
+function loadTracks() {
+    $.get('/api/tracks', function(data) {
+        tracks = data;
+        renderTracks(tracks);
+    }).fail(function() {
+        showMessage('Failed to load tracks from server.', 'danger');
+    });
 }
 
 // Can also display a filtered list from the jQuery section.
@@ -88,3 +96,4 @@ trackForm.addEventListener("submit", function(event) {
 });
 
 renderTracks();
+loadTracks();

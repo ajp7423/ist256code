@@ -28,7 +28,7 @@ function renderTracks(trackList = tracks) {
     trackList.forEach(function(track) {
         const row = document.createElement("tr");
         const values = [track.trackId, track.title, track.category,
-            track.format, "$" + Number(track.price).toFixed(2), track.info];
+            track.format, track.price, track.info];
 
         values.forEach(function(value) {
             const cell = document.createElement("td");

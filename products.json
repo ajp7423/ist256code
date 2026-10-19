@@ -1,0 +1,9 @@
+[
+  { "productId": "SW-1001", "description": "Midnight Drive – Vinyl LP", "category": "Alternative", "unitOfMeasure": "Vinyl", "price": 27.99, "weight": "0.45 kg" },
+  { "productId": "SW-1002", "description": "Back Road Stories – Deluxe CD", "category": "Country", "unitOfMeasure": "CD", "price": 14.99, "weight": "0.10 kg" },
+  { "productId": "SW-1003", "description": "City Lights – Digital Album", "category": "Pop", "unitOfMeasure": "Digital Download", "price": 9.99, "weight": "" },
+  { "productId": "SW-1004", "description": "Concrete Poetry – Vinyl LP", "category": "Hip-Hop", "unitOfMeasure": "Vinyl", "price": 31.50, "weight": "0.48 kg" },
+  { "productId": "SW-1005", "description": "Amplified – Cassette", "category": "Rock", "unitOfMeasure": "Cassette", "price": 11.00, "weight": "0.06 kg" },
+  { "productId": "SW-1006", "description": "Slow Burn – Digital Single", "category": "R&B", "unitOfMeasure": "Digital Download", "price": 1.29, "weight": "" },
+  { "productId": "SW-1007", "description": "Neon Static – Deluxe CD", "category": "Pop", "unitOfMeasure": "CD", "price": 16.49, "weight": "0.11 kg" }
+]
